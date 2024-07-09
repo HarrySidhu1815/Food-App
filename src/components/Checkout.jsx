@@ -9,8 +9,7 @@ import useHttp from "../hooks/useHttp";
 import Error from "./Error";
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL
-
-const Server = import.meta.env.VITE_SERVER_URL 
+ 
 const requiredConfig = {
   method: "POST",
   headers: {
@@ -28,7 +27,7 @@ const Checkout = () => {
     sendRequest,
     clearData
   } = useHttp(`${SERVER_URL}/orders`, requiredConfig);
-  } = useHttp(`${Server}/orders`, requiredConfig);
+
 
   function handleCloseCheckout() {
     userCtx.hideCheckout();
