@@ -8,6 +8,8 @@ import Modal from "./UI/Modal";
 import useHttp from "../hooks/useHttp";
 import Error from "./Error";
 
+const SERVER_URL = import.meta.env.VITE_SERVER_URL
+
 const requiredConfig = {
   method: "POST",
   headers: {
@@ -24,7 +26,7 @@ const Checkout = () => {
     error,
     sendRequest,
     clearData
-  } = useHttp("http://localhost:3000/orders", requiredConfig);
+  } = useHttp(`${SERVER_URL}/orders`, requiredConfig);
 
   function handleCloseCheckout() {
     userCtx.hideCheckout();

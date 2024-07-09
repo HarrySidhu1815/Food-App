@@ -3,6 +3,7 @@ import { currencyFormatter } from '../utils/formatter'
 import Button from './UI/Button'
 import CartContext from '../store/CartContext'
 
+const SERVER_URL = import.meta.env.VITE_SERVER_URL
 const MealItem = ({meal}) => {
     const cartCtx = useContext(CartContext)
 
@@ -12,7 +13,7 @@ const MealItem = ({meal}) => {
   return (
     <li className='meal-item'>
       <article>
-        <img src ={`http://localhost:3000/${meal.image}`} alt={meal.name} />
+        <img src ={`${SERVER_URL}/${meal.image}`} alt={meal.name} />
         <div>
         <h3>{meal.name}</h3>
         <p className='meal-item-price'>{currencyFormatter.format(meal.price)}</p>
