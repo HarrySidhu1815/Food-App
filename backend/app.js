@@ -5,7 +5,7 @@ import express from 'express';
 const cors = require('cors')
 
 const app = express();
-PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 const allowedOrigin = 'https://sidhurestuarant.netlify.app/';
 
 app.use(cors({
