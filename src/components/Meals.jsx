@@ -4,13 +4,14 @@ import useHttp from "../hooks/useHttp";
 import Error from "./Error.jsx";
 
 const requestConfig = {};
+const SERVER_URL = import.meta.env.VITE_SERVER_URL
 
 const Meals = () => {
   const {
     data: availableMeals,
     isLoading,
     error,
-  } = useHttp("http://localhost:3000/meals", requestConfig, []);
+  } = useHttp(`${SERVER_URL}/meals`, requestConfig, []);
 
   if (isLoading) {
     return <p className="center">Fetching meals ...</p>;
