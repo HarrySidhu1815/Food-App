@@ -1,10 +1,18 @@
 import fs from 'node:fs/promises';
-
 import bodyParser from 'body-parser';
 import express from 'express';
 
+const cors = require('cors')
+
 const app = express();
 PORT = process.env.PORT || 3000
+const allowedOrigin = 'https://sidhurestuarant.netlify.app/';
+
+app.use(cors({
+  origin: allowedOrigin,
+  methods: ["POST", "GET"],
+  credentials: true // Allow credentials (cookies) to be sent
+}));
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
